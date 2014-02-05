@@ -1,4 +1,4 @@
-# Note the kversion must be passed in at the rpmbuild time as an argument
+# Note, you can get the current kernel version using 'uname -r'
 
 %define kversion 3.12.9-301.fc20.x86_64
 %define module_dir /lib/modules/%kversion/extra/mba6x_bl
