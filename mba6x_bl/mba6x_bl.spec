@@ -15,7 +15,6 @@ Group:          System Environment/Kernel
 License:	GPLv2        
 URL:		https://github.com/patjak/mba6x_bl
 Source0:	%{name}-%{version}
-Source1:	mba6x_bl.zip
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  %{_bindir}/kmodtool
@@ -52,7 +51,7 @@ These are the common dependencies needed by the kmod kernel modules
 kmodtool  --target %{_target_cpu}  --repo rpmfusion --kmodname %{name} %{?buildforkernels:--%{buildforkernels}} %{?kernels:--for-kernels "%{?kernels}"} 2>/dev/null
 
 %setup -q -n %{name}-%{version}
-%setup -T -a 1
+unzip mba6x_bl.zip
 
 for kernel_version in %{?kernel_versions} ; do
    cp -a mba6x_bl-master _kmod_build_${kernel_version%%___*}
