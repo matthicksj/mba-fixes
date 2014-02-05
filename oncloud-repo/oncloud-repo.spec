@@ -1,5 +1,5 @@
 Name:		oncloud-repo
-Version:	0.2
+Version:	0.3
 Release:	1%{?dist}
 Summary:	Matt-OnCloud repository for running Fedora on a Macbook Air
 Group:		System Environment/Base
@@ -27,3 +27,6 @@ rm -rf %{buildroot}
 %{_sysconfdir}/yum.repos.d/oncloud.repo
 
 %changelog
+* Wed Feb 05 2014 Matt Hicks <mhicks@redhat.com> 0.3-1
+- new package built with tito
+
