@@ -1,0 +1,5 @@
+[oncloud]
+name=oncloud
+baseurl=http://files-oncloud.rhcloud.com/yum
+enabled=1
+gpgcheck=0
