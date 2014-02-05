@@ -18,15 +18,14 @@ and SSD hangs when running Fedora on a Macbook Air 6,2 model.
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}%{_sysconfdir}/systemd/system
+mkdir -p %{buildroot}%{_sysconfdir}/udev/rules.d
 cp mapping_fix.service %{buildroot}%{_sysconfdir}/systemd/system
-cp ssd_fix.service %{buildroot}%{_sysconfdir}/systemd/system
+cp 59-ssd_depth_fix.rules %{buildroot}%{_sysconfdir}/udev/rules.d
 
 %post
 systemctl daemon-reload
 systemctl enable mapping_fix
-systemctl enable ssd_fix
 systemctl start mapping_fix
-systemctl start ssd_fix
 
 %clean
 rm -rf %{buildroot}
@@ -35,7 +34,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 %doc
 %{_sysconfdir}/systemd/system/mapping_fix.service
-%{_sysconfdir}/systemd/system/ssd_fix.service
+%{_sysconfdir}/udev/rules.d/59-ssd_depth_fix.rules
 
 %changelog
 * Wed Feb 05 2014 Matt Hicks <mhicks@redhat.com> 0.3-1

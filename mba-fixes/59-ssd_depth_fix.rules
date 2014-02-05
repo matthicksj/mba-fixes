@@ -1,0 +1,2 @@
+# Set queue depth to 1 to avoid I/O errors
+ACTION=="add|change", KERNEL=="sda", ATTR{device/queue_depth}="1"
