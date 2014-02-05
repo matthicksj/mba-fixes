@@ -6,7 +6,7 @@
 # name should have a -kmod suffix
 Name: mba6x_bl-kmod
 
-Version:        0.2
+Version:        0.3
 Release:        1%{?dist}.1
 Summary:        Kernel module(s)
 
@@ -86,6 +86,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/X11/xorg.conf.d/01-mba-backlight.conf
 
 %changelog
+* Wed Feb 05 2014 Matt Hicks <mhicks@redhat.com> 0.3-1.1
+- Adding mba6x_bl sources (mhicks@redhat.com)
+
 * Wed Feb 05 2014 Matt Hicks <mhicks@redhat.com> 0.2-1.1
 - New package built with tito
 
