@@ -74,7 +74,7 @@ done
 
 # Copy the xorg file
 install    -m 0755 -d         ${RPM_BUILD_ROOT}%{_sysconfdir}/X11/xorg.conf.d/
-install -p -m 0644 %{SOURCE1} ${RPM_BUILD_ROOT}%{_sysconfdir}/X11/xorg.conf.d/
+install -p -m 0644 01-mba-backlight.conf ${RPM_BUILD_ROOT}%{_sysconfdir}/X11/xorg.conf.d/
 
 
 %clean
