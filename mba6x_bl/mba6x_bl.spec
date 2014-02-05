@@ -35,6 +35,10 @@ cd mba6x_bl-master
 install -m 755 -d %{buildroot}/%{module_dir}
 install -m 644 mba6x_bl.ko %{buildroot}/%{module_dir}
 
+# Add the xorg configuration
+install -m 755 -d %{buildroot}/%{_sysconfdir}/X11/xorg.conf.d
+install -m 644 01-mba-backlight.conf %{buildroot}/%{_sysconfdir}/X11/xorg.conf.d
+
 %post
 modprobe mba6x_bl
 
@@ -44,6 +48,7 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root,-)
 %{module_dir}/mba6x_bl.ko
+%config %{_sysconfdir}/X11/xorg.conf.d/01-mba-backlight.conf
 
 %changelog
 * Wed Feb 05 2014 Matt Hicks <mhicks@redhat.com> 0.6-1
