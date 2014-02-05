@@ -1,5 +1,5 @@
 Name:		mba-fixes	
-Version:	0.2
+Version:	0.3
 Release:	1%{?dist}
 Summary:	Various configuration fixes for running Fedora on a Macbook Air 6,2
 Group:		System Environment/Base
@@ -38,3 +38,6 @@ rm -rf %{buildroot}
 %{_sysconfdir}/systemd/system/ssd_fix.service
 
 %changelog
+* Wed Feb 05 2014 Matt Hicks <mhicks@redhat.com> 0.3-1
+- new package built with tito
+
