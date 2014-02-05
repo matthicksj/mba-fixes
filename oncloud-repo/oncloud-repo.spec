@@ -17,7 +17,7 @@ This package provides the yum repository configuration for the Matt-OnCloud repo
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}%{_sysconfdir}/yum.repos.d/
-cp oncloud.repo %{buildroot}%{_sysconfdir}/yum.repos.d/
+install -m 644 oncloud.repo %{buildroot}%{_sysconfdir}/yum.repos.d/
 
 %clean
 rm -rf %{buildroot}

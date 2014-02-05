@@ -1,9 +1,17 @@
 #!/bin/sh
 
 pushd `dirname $0` > /dev/null
-echo "Downloading latest sources from patjak/mba6x_bl on GitHub"
-wget -O mba6x_bl/mba6x_bl.zip https://github.com/patjak/mba6x_bl/archive/master.zip
-
 echo "Building RPMs with tito"
-tito build --rpm
+rm -rf /tmp/mba-repo
+mkdir -p /tmp/mba-repo
+
+cd mba-fixes
+tito build --output=/tmp/mba-repo
+
+cd ../mba6x_bl
+tito build --output=/tmp/mba-repo
+
+cd ../oncloud-repo
+tito build --output=/tmp/mba-repo
+
 popd > /dev/null
