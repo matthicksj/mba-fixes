@@ -1,7 +1,7 @@
 mba-fixes
 =========
 
-Fixes for running Fedora on a Macbook Air 6,2
+Fixes for running Fedora on a Macbook Air 6,2.  These are basically helper RPM's for setting up my Fedora installation as described here - http://mattoncloud.org/2014/02/05/fedora-20-on-a-macbook-air/.
 
 To build these, first follow the setup instructions for building a Fedora package (http://bit.ly/1eoG8jl).  Once you have your rpmbuild environment setup, just copy over the SPEC and SOURCES content and then you can build the RPM's from the SPEC files.
 
