@@ -7,7 +7,7 @@
 %define module_dir /lib/modules/%kversion/extra/mba6x_bl
 
 Name:		mba6x_bl-kmod
-Version:	0.5
+Version:	0.6
 Release:	1%{?dist}
 Summary:	MacBook Air 6x backlight kernel module
 Group:		System Environment/Base
@@ -46,6 +46,10 @@ rm -rf %{buildroot}
 %{module_dir}/mba6x_bl.ko
 
 %changelog
+* Wed Feb 05 2014 Matt Hicks <mhicks@redhat.com> 0.6-1
+- More manual build approach by just passing in the kernel version
+  (mhicks@redhat.com)
+
 * Wed Feb 05 2014 Matt Hicks <mhicks@redhat.com> 0.5-1
 - Updating spec to a simpler format (mhicks@redhat.com)
 - Updating (mhicks@redhat.com)
