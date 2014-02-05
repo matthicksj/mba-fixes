@@ -1,5 +1,5 @@
 Name:		mba6x_bl-kmod
-Version:	0.4
+Version:	0.5
 Release:	1%{?dist}
 Summary:	MacBook Air 6x backlight kernel module
 Group:		System Environment/Base
@@ -34,6 +34,10 @@ rm -rf %{buildroot}
 %{_libdir}/modules/`uname -r`/extra/mba6x_bl/mba6x_bl.ko
 
 %changelog
+* Wed Feb 05 2014 Matt Hicks <mhicks@redhat.com> 0.5-1
+- Updating spec to a simpler format (mhicks@redhat.com)
+- Updating (mhicks@redhat.com)
+
 * Wed Feb 05 2014 Matt Hicks <mhicks@redhat.com> 0.2-1
 - New package built with tito
 
