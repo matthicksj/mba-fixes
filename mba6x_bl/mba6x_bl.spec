@@ -1,3 +1,11 @@
+# Note the kversion must be passed in at the rpmbuild time as an argument
+# For example:
+#     rpmbuild -ba --define "kversion `uname -r`"
+# or if using tito:
+#     tito build --rpmbuild-options="--define 'kversion `uname -r`'"
+
+%define module_dir /lib/modules/%kversion/extra/mba6x_bl
+
 Name:		mba6x_bl-kmod
 Version:	0.5
 Release:	1%{?dist}
@@ -15,7 +23,7 @@ this module.
 
 %prep
 %setup -q -n %{name}-%{version}
-unzip mba6x_bl-master
+unzip mba6x_bl.zip
 
 %build
 cd mba6x_bl-master
@@ -24,14 +32,18 @@ make
 %install
 rm -rf %{buildroot}
 cd mba6x_bl-master
-make install
+install -m 755 -d %{buildroot}/%{module_dir}
+install -m 644 mba6x_bl.ko %{buildroot}/%{module_dir}
+
+%post
+modprobe mba6x_bl
 
 %clean
 rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
-%{_libdir}/modules/`uname -r`/extra/mba6x_bl/mba6x_bl.ko
+%{module_dir}/mba6x_bl.ko
 
 %changelog
 * Wed Feb 05 2014 Matt Hicks <mhicks@redhat.com> 0.5-1
