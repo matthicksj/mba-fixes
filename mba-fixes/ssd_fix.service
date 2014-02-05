@@ -1,0 +1,9 @@
+[Unit]
+Description=SSD fix to avoid I/O errors
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c '/usr/bin/echo 1 > /sys/block/sda/device/queue_depth'
+
+[Install]
+WantedBy=multi-user.target

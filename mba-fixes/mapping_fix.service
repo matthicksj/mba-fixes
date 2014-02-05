@@ -1,0 +1,9 @@
+[Unit]
+Description=Keyboard mapping fix to allow tilde
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c '/usr/bin/echo 0 > /sys/module/hid_apple/parameters/iso_layout'
+
+[Install]
+WantedBy=multi-user.target
