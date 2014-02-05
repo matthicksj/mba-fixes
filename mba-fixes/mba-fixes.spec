@@ -18,8 +18,8 @@ and SSD hangs when running Fedora on a Macbook Air 6,2 model.
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}%{_sysconfdir}/systemd/system
-cp %{SOURCE0} %{buildroot}%{_sysconfdir}/systemd/system
-cp %{SOURCE1} %{buildroot}%{_sysconfdir}/systemd/system
+cp mapping_fix.service %{buildroot}%{_sysconfdir}/systemd/system
+cp ssd_fix.service %{buildroot}%{_sysconfdir}/systemd/system
 
 %post
 systemctl daemon-reload
