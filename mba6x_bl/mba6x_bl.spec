@@ -10,7 +10,7 @@ Summary:	MacBook Air 6x backlight kernel module
 Group:		System Environment/Base
 License:	GPLv2
 URL:		http://github.com/matthicksj/mba-fixes
-Source0:	%{name}-%{version}
+Source0:	%{name}-%{version}.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %description
