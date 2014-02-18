@@ -1,7 +1,7 @@
 # Note, you can get the current kernel version using 'uname -r'
 
 %define kversion 3.12.10-300.fc20.x86_64
-%define module_dir /lib/modules/%kversion/extra/mba6x_bl
+%define module_dir /lib/modules/%kversion/extra
 
 Name:		mba6x_bl-kmod
 Version:	0.5
@@ -17,8 +17,6 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 This provides a new kernel module for the Macbook Air 6x models that controls the backlight.
 This also provides a new xorg configuration to change the Intel video configuration to use
 this module.
-
-Kernel version: 3.12.10-300
 
 %prep
 %setup -q -n %{name}-%{version}
@@ -40,7 +38,7 @@ install -m 755 -d %{buildroot}/%{_sysconfdir}/X11/xorg.conf.d
 install -m 644 01-mba-backlight.conf %{buildroot}/%{_sysconfdir}/X11/xorg.conf.d
 
 %post
-modprobe mba6x_bl
+depmod -a
 
 %clean
 rm -rf %{buildroot}
