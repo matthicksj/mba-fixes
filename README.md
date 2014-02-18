@@ -18,7 +18,7 @@ build.sh
 
 When you get a new kernel version, open the spec file in the mba6x_bl
 directory, update the kversion variable at the top, and 'git commit' the
-changes.  Then build.sh will complete the tito builds and update the
+changes.  Then run 'tito tag' and 'git push --tags'.  Then build.sh will complete the tito builds and update the
 contents on OpenShift.
 
 Enjoy! 
