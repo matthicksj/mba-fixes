@@ -13,4 +13,12 @@ To build, go into one of the src directories (e.g. mba-fixes) and run:
 I host the results as a yum repository on OpenShift and you can see the
 build.sh script as to how I automate that.
 
+build.sh
+-----------
+
+When you get a new kernel version, open the spec file in the mba6x_bl
+directory, update the kversion variable at the top, and 'git commit' the
+changes.  Then build.sh will complete the tito builds and update the
+contents on OpenShift.
+
 Enjoy! 

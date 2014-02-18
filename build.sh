@@ -37,7 +37,7 @@ tar -zxf files.tar.gz
 rm files.tar.gz
 
 # Now merge the yum repository with the content
-mkdir repo/php/yum
+mkdir -p repo/php/yum
 cp -r /tmp/mba-repo/* repo/php/yum
 
 tar -cvf /tmp/mba-repo/files.tar *
