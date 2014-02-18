@@ -18,6 +18,8 @@ This provides a new kernel module for the Macbook Air 6x models that controls th
 This also provides a new xorg configuration to change the Intel video configuration to use
 this module.
 
+Kernel version: 3.12.10-300
+
 %prep
 %setup -q -n %{name}-%{version}
 unzip mba6x_bl.zip
