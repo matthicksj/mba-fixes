@@ -1,6 +1,6 @@
 # Note, you can get the current kernel version using 'uname -r'
 
-%define kversion 3.13.5-202.fc20.x86_64
+%define kversion 3.13.6-200.fc20.x86_64
 %define module_dir /lib/modules/%kversion/extra
 
 Name:		mba6x_bl-kmod
