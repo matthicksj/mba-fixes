@@ -1,7 +1,8 @@
 # Note, you can get the current kernel version using 'uname -r'
 
 %define kversion 3.13.6-200.fc20.x86_64
-%define module_dir /lib/modules/%kversion/extra
+%define build_module_dir lib/modules/%kversion/build
+%define module_dir lib/modules/%kversion/extra
 
 Name:		mba6x_bl-kmod
 Version:	0.9
@@ -31,7 +32,7 @@ cd mba6x_bl-master
 # Create environment files for Makefile
 export MODLIB=%{buildroot}/%{module_dir}
 export KVERSION=%{kversion}
-export KDIR=%{buildroot}/%{module_dir}/build
+export KDIR=%{buildroot}/%{build_module_dir}
 export PWD=$(pwd)
 
 make
