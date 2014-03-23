@@ -16,9 +16,15 @@ build.sh script as to how I automate that.
 build.sh
 -----------
 
-When you get a new kernel version, open the spec file in the mba6x_bl
-directory, update the kversion variable at the top, and 'git commit' the
-changes.  Then run 'tito tag' and 'git push --tags'.  Then build.sh will complete the tito builds and update the
-contents on OpenShift.
+For any updates, you need to commit the work, push it and 'tito tag' it
+before running the overall build.  For example, you would do:
+
+    git commit -a -m "My changes"
+    tito tag
+    git push
+    git push --tags
+
+Then you should be safe to run 'build.sh' to upload the results to
+OpenShift.
 
 Enjoy! 

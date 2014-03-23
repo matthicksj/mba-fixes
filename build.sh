@@ -9,9 +9,6 @@ mkdir -p /tmp/mba-repo
 cd mba-fixes
 tito build --rpm --output=/tmp/mba-repo
 
-cd ../mba6x_bl
-tito build --rpm --output=/tmp/mba-repo
-
 cd ../oncloud-repo
 tito build --rpm --output=/tmp/mba-repo
 

@@ -19,11 +19,14 @@ and SSD hangs when running Fedora on a Macbook Air 6,2 model.
 rm -rf %{buildroot}
 mkdir -p %{buildroot}%{_sysconfdir}/systemd/system
 mkdir -p %{buildroot}%{_sysconfdir}/udev/rules.d
+cp wakeup_fix.service %{buildroot}%{_sysconfdir}/systemd/system
 cp mapping_fix.service %{buildroot}%{_sysconfdir}/systemd/system
 cp 59-ssd_depth_fix.rules %{buildroot}%{_sysconfdir}/udev/rules.d
 
 %post
 systemctl daemon-reload
+systemctl enable wakeup_fix
+systemctl start wakeup_fix
 systemctl enable mapping_fix
 systemctl start mapping_fix
 
@@ -33,6 +36,7 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root,-)
 %doc
+%{_sysconfdir}/systemd/system/wakeup_fix.service
 %{_sysconfdir}/systemd/system/mapping_fix.service
 %{_sysconfdir}/udev/rules.d/59-ssd_depth_fix.rules
 
