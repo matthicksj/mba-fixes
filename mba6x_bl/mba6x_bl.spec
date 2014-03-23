@@ -21,7 +21,7 @@ this module.
 %prep
 %setup -q -n %{name}-%{version}
 unzip mba6x_bl.zip
-patch -p1 make.patch
+patch -p1 < make.patch
 
 %build
 cd mba6x_bl-master
