@@ -32,7 +32,7 @@ cd mba6x_bl-master
 export MODLIB=%{buildroot}/%{module_dir}
 export KVERSION=%{kversion}
 export KDIR=%{buildroot}/%{module_dir}/build
-export PWD=$(shell pwd)
+export PWD=$(pwd)
 
 make
 
