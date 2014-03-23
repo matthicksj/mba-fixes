@@ -30,7 +30,10 @@ make
 rm -rf %{buildroot}
 pushd mba6x_bl-master
 install -m 755 -d %{buildroot}/%{module_dir}
-install -m 644 mba6x_bl.ko %{buildroot}/%{module_dir}
+
+# Install the module
+export MODLIB=%{buildroot}/%{module_dir}
+make modules_install
 popd
 
 # Add the xorg configuration
@@ -39,6 +42,7 @@ install -m 644 01-mba-backlight.conf %{buildroot}/%{_sysconfdir}/X11/xorg.conf.d
 
 %post
 depmod -a
+modprobe mba6x_bl
 
 %clean
 rm -rf %{buildroot}
