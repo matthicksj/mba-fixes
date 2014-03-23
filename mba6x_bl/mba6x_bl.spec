@@ -43,9 +43,9 @@ install -m 755 -d %{buildroot}/%{module_dir}
 
 # Install the module
 export MODLIB=%{buildroot}/%{module_dir}
-echo $KDIR
-echo $KVERSION
-echo $PWD
+export KVERSION=%{kversion}
+export KDIR=%{build_module_dir}
+export PWD=$(pwd)
 make install
 
 popd
