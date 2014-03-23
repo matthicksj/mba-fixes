@@ -42,7 +42,7 @@ rm -rf %{buildroot}
 install -m 755 -d %{buildroot}/%{module_dir}
 
 # Install the module
-export MODLIB=%{buildroot}/%{module_dir}
+export INSTALL_MOD_PATH=%{buildroot}
 export KVERSION=%{kversion}
 export KDIR=%{build_module_dir}
 export PWD=$(pwd)
