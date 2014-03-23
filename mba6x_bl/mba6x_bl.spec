@@ -25,7 +25,7 @@ unzip mba6x_bl.zip
 patch -p1 < make.patch
 
 %build
-install -m 755 -d %{buildroot}/%{module_dir}/build
+install -m 755 -d %{buildroot}/%{build_module_dir}
 
 cd mba6x_bl-master
 
