@@ -24,7 +24,16 @@ unzip mba6x_bl.zip
 patch -p1 < make.patch
 
 %build
+install -m 755 -d %{buildroot}/%{module_dir}/build
+
 cd mba6x_bl-master
+
+# Create environment files for Makefile
+export MODLIB=%{buildroot}/%{module_dir}
+export KVERSION=%{kversion}
+export KDIR=%{buildroot}/%{module_dir}/build
+export PWD=$(shell pwd)
+
 make
 
 %install
