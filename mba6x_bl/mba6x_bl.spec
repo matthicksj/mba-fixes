@@ -35,6 +35,7 @@ install -m 755 -d %{buildroot}/%{module_dir}
 
 # Install the module
 export MODLIB=%{buildroot}/%{module_dir}
+cat Makefile
 make modules_install
 
 # Add the xorg configuration
