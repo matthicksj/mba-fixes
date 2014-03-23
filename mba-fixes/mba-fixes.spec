@@ -1,5 +1,5 @@
 Name:		mba-fixes	
-Version:	0.4
+Version:	0.5
 Release:	1%{?dist}
 Summary:	Various configuration fixes for running Fedora on a Macbook Air 6,2
 Group:		System Environment/Base
@@ -41,6 +41,9 @@ rm -rf %{buildroot}
 %{_sysconfdir}/udev/rules.d/59-ssd_depth_fix.rules
 
 %changelog
+* Sun Mar 23 2014 Matt Hicks <mhicks@redhat.com> 0.5-1
+- Removing mba6x_bl and adding wakeup fix (mhicks@redhat.com)
+
 * Wed Feb 05 2014 Matt Hicks <mhicks@redhat.com> 0.4-1
 - Switching to udev rule instead of systemd script (mhicks@redhat.com)
 
