@@ -28,15 +28,13 @@ make
 
 %install
 cd mba6x_bl-master
-ls
 
 rm -rf %{buildroot}
 install -m 755 -d %{buildroot}/%{module_dir}
 
 # Install the module
 export MODLIB=%{buildroot}/%{module_dir}
-cat Makefile
-make modules_install
+make install
 
 # Add the xorg configuration
 install -m 755 -d %{buildroot}/%{_sysconfdir}/X11/xorg.conf.d
