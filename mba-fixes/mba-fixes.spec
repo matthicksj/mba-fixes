@@ -1,5 +1,5 @@
 Name:		mba-fixes	
-Version:	0.5
+Version:	0.6
 Release:	1%{?dist}
 Summary:	Various configuration fixes for running Fedora on a Macbook Air 6,2
 Group:		System Environment/Base
@@ -21,6 +21,7 @@ mkdir -p %{buildroot}%{_sysconfdir}/systemd/system
 mkdir -p %{buildroot}%{_sysconfdir}/udev/rules.d
 cp wakeup_fix.service %{buildroot}%{_sysconfdir}/systemd/system
 cp mapping_fix.service %{buildroot}%{_sysconfdir}/systemd/system
+cp gpe66_fix.service %{buildroot}%{_sysconfdir}/systemd/system
 cp 59-ssd_depth_fix.rules %{buildroot}%{_sysconfdir}/udev/rules.d
 
 %post
@@ -29,6 +30,8 @@ systemctl enable wakeup_fix
 systemctl start wakeup_fix
 systemctl enable mapping_fix
 systemctl start mapping_fix
+systemctl enable gpe66_fix
+systemctl start gpe66_fix
 
 %clean
 rm -rf %{buildroot}
@@ -38,9 +41,13 @@ rm -rf %{buildroot}
 %doc
 %{_sysconfdir}/systemd/system/wakeup_fix.service
 %{_sysconfdir}/systemd/system/mapping_fix.service
+%{_sysconfdir}/systemd/system/gpe66_fix.service
 %{_sysconfdir}/udev/rules.d/59-ssd_depth_fix.rules
 
 %changelog
+* Sat Jan 10 2015 David Trudgian <dave@trudgian.net> 0.6-1
+- Adding fix for gpe66 interrupt storm 
+
 * Sun Mar 23 2014 Matt Hicks <mhicks@redhat.com> 0.5-1
 - Removing mba6x_bl and adding wakeup fix (mhicks@redhat.com)
 
